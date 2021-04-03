@@ -14,7 +14,7 @@ console.log("from card: ", props.link)
                 </Col>
                 <Col size="md-2">
                     <Row>
-                <Buttons bgColor={"#0B98D4"}><a href={props.link} target="_blank" rel="noopener noreferrer">View</a></Buttons>
+                <Buttons bgColor={"#0B98D4"} ><a href={props.link} target="_blank" rel="noopener noreferrer">View</a></Buttons>
                 <Buttons bgColor={props.bgColor} onClick={props.onClick}>{props.label}</Buttons>
                 </Row>
                 <Row>
