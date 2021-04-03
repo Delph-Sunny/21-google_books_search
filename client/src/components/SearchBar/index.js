@@ -1,5 +1,6 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
+import Button from 'react-bootstrap/Button';
 import "./style.css";
 
 function SearchBar(props) {
@@ -17,13 +18,13 @@ function SearchBar(props) {
               aria-label="Search"
             />
           </div>
-          <button
+          <Button
             onClick={props.handleFormSubmit}
-            className="btn btn-lg btn-outline-info text-dark my-sm-0"
+            className="btn-lg"
             type="submit"
           >
             <FaSearch className="search-icon" />
-          </button>
+          </Button>
         </div>
       </div>
     </section>

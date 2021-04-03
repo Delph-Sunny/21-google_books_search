@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Jumbotron from "../components/Jumbotron";
+import MyJumbotron from "../components/Jumbotron";
 import { Container } from "../components/Grid";
 import API from "../utils/API";
-import Card from '../components/Card';
+import BookCard from '../components/BookCard';
 import "./style.css";
 
 function Saved() {
@@ -30,11 +30,11 @@ function Saved() {
 
   return (
     <Container fluid>
-      <Jumbotron />
+      <MyJumbotron />
       <Container>
         <ul>
           {books.map((book) => (
-            <Card
+            <BookCard
               key={book._id}
               title={book.title}
               authors={book.authors}
@@ -45,7 +45,7 @@ function Saved() {
               label="Delete"
               bgColor="#AC3117"
 
-            ></Card>
+            ></BookCard>
           ))}
         </ul>
       </Container>

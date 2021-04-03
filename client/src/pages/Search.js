@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Jumbotron from "../components/Jumbotron";
+import MyJumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import SearchBar from "../components/SearchBar";
 import { Container } from "../components/Grid";
-import Card from "../components/Card";
+import BookCard from "../components/BookCard";
 import "./style.css";
 
 function Search() {
@@ -58,7 +58,7 @@ function Search() {
 
   return (
     <Container fluid>
-      <Jumbotron />
+      <MyJumbotron />
       <SearchBar
         handleFormSubmit={handleFormSubmit}
         handleInputChange={handleInputChange}
@@ -66,7 +66,7 @@ function Search() {
       <Container>
         <ul>
           {books.map((book) => (
-            <Card
+            <BookCard
               key={book.id}
               title={book.volumeInfo.title}
               subtitle={book.volumeInfo.subtitle}

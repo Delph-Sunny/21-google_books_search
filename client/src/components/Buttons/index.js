@@ -1,15 +1,15 @@
 import React from "react";
-
+import Button from 'react-bootstrap/Button';
+import "./style.css";
 
 function Buttons(props) {
     return (
-      <button
-        className="btn btn-lg"
+      <Button size="lg"
         style={{ backgroundColor: props.bgColor }}
         onClick={props.onClick}
       >
         {props.children}
-      </button>
+      </Button>
     );
   };
 

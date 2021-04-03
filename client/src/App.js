@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Saved from "./pages/Saved";
 import Search from "./pages/Search";
-import Nav from "./components/Nav";
+import MyNav from "./components/MyNav";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <MyNav />
         <Switch>
           <Route exact path="/" component={Search} />
           <Route exact path="/search" component={Search} />
