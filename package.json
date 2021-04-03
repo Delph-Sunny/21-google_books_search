@@ -1,5 +1,5 @@
 {
-  "name": "google-book-search",
+  "name": "google_book_search",
   "version": "1.0.0",
   "description": "App to create book list",
   "main": "server.js",
