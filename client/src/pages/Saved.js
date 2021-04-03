@@ -40,8 +40,10 @@ function Saved() {
               authors={book.authors}
               description={book.description}
               image={book.image}
-              link={book.link}
-              onClick={this.deleteBook}
+              link={book.link}              
+              onClick={() => deleteBook(book._id)}
+              label="Delete"
+              bgColor="#AC3117"
 
             ></Card>
           ))}

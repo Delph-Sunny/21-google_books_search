@@ -3,7 +3,8 @@ import { Row, Col } from "../Grid";
 import Ratings from "../Ratings";
 import Buttons from "../Buttons";
 
-function Card(props) {    
+function Card(props) {   
+console.log("from card: ", props.link)
     return (
         <li key={props.id}>
             <Row>                
@@ -13,8 +14,8 @@ function Card(props) {
                 </Col>
                 <Col size="md-2">
                     <Row>
-                <Buttons bgColor={"#808080"} onClick={props.handleClickView}>View</Buttons>
-                <Buttons bgColor={"#ffcb74"} onClick={props.onClick}>Save</Buttons>
+                <Buttons bgColor={"#0B98D4"}><a href={props.link} target="_blank" rel="noopener noreferrer">View</a></Buttons>
+                <Buttons bgColor={props.bgColor} onClick={props.onClick}>{props.label}</Buttons>
                 </Row>
                 <Row>
                 <Ratings rating={props.rating}/>

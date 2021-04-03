@@ -75,7 +75,9 @@ function Search() {
               image={book.volumeInfo.imageLinks ? (book.volumeInfo.imageLinks.thumbnail) : ("")}
               link={book.volumeInfo.infoLink}
               rating={book.volumeInfo.averageRating}
-              onClick={this.saveBook}
+              onClick={() => saveBook(book.id)}
+              label="Save"
+              bgColor="#0EDB99"
             />
           ))}
         </ul>
