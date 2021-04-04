@@ -8,7 +8,7 @@ const bookSchema = new Schema({
   description: { type: String, required: true },
   image: { type: String, required: true },
   link: { type: String, required: true },
-  averageRating: {type: Number}
+
 });
 
 const Book = mongoose.model("Book", bookSchema);

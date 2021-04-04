@@ -29,8 +29,8 @@ function BookCard(props) {
               {props.label}
             </Buttons>
           </Row>
-          <Row>
-            <Ratings rating={props.rating} />
+          <Row style={{ display: props.display }} >
+            <Ratings rating={props.rating}/>
           </Row>
         </Col>
       </Row>

@@ -44,6 +44,7 @@ function Saved() {
               onClick={() => deleteBook(book._id)}
               label="Delete"
               bgColor="#AC3117"
+              display="none"
 
             ></BookCard>
           ))}

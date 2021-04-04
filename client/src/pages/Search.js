@@ -47,7 +47,7 @@ function Search() {
       description: book.volumeInfo.description,
       image: book.volumeInfo.imageLinks.thumbnail,
       link: book.volumeInfo.infoLink,
-      rating: book.volumeInfo.averageRating
+      //rating: book.volumeInfo.averageRating
     })
       .then((res) => {
         alert("Your book has been saved"); // TO DO: better render if time
@@ -74,7 +74,7 @@ function Search() {
               description={book.volumeInfo.description}
               image={book.volumeInfo.imageLinks ? (book.volumeInfo.imageLinks.thumbnail) : ("")}
               link={book.volumeInfo.infoLink}
-              rating={book.volumeInfo.averageRating}
+              rating={book.volumeInfo.averageRating}              
               onClick={() => saveBook(book.id)}
               label="Save"
               bgColor="#0EDB99"
