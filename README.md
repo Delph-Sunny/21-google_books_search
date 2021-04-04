@@ -4,11 +4,6 @@
 <span align="center">  
 
 
-
-:construction: IN PROGRESS :construction:  
-  
-
-
  <a href="https://img.shields.io/badge/react-v17.0.1-green?style=plastic"><img alt="React" src="https://img.shields.io/badge/react-v17.0.1-green?style=plastic"/></a>
 <a href="https://img.shields.io/badge/axios-v0.21.1-blue?style=plastic"><img alt="Axios" src="https://img.shields.io/badge/axios-v0.21.1-blue?style=plastic"/></a>
  <a href="https://img.shields.io/badge/express-v4.16.4-orange?style=plastic"><img alt="Express" src="https://img.shields.io/badge/express-v4.16.4-orange?style=plastic"/></a>
@@ -81,9 +76,7 @@ The layout should include at least two React Components for each page `Search` a
     * `/api/books` (get) - Should return all saved books as JSON.  
     * `/api/books` (post) - Will be used to save a new book to the database.  
     * `/api/books/:id` (delete) - Will be used to delete a book from the database by Mongo `_id`.  
-    * `*` (get) - Will load your single HTML page in `client/build/index.html`.  
-
-
+    * `*` (get) - Will load your single HTML page in `client/build/index.html`. 
 
 
 :information_source:   
@@ -107,13 +100,18 @@ You can use directly the [deployed app](HEROKU) or run it locally with the follo
 - Clone the following [repo](https://github.com/Delph-Sunny/21-google-books-search)  
 - In the working directory, install the dependencies package with the following code line `npm i`  
 - Once the dependencies have been installed, enter `npm start`  
-Start filtering or sorting the employee list.   
+Start searching for books and saving interesting books. Navigate between Search and Saved page to edit the list or add more. 
+- The search returns a list of books matching the typed words and displays for each their google ratings so it is easier to pick a good book. The saved list doesn't display the rating. They are not necessary at this stage.  
 
-## Images of the App :mag:    
-![Google_Books_Search](./images/Snippet_1.PNG)  
+## Images of the App :mag: 
+The Search page:   
+![Google_Books_Search](./docs/snippet1.png)  
 
-Filtering names with the letter "f":  
-![Google_Books_Search](./images/Snippet_2.PNG)     
+The Saved page on a smaller device:  
+![Google_Books_Saved](./docs/snippet2.png)   
+     
+ __Note: This saved list used the seed file__  
+
 
 ## License  
 
