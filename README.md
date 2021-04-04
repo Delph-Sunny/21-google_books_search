@@ -105,10 +105,10 @@ Start searching for books and saving interesting books. Navigate between Search 
 
 ## Images of the App :mag: 
 The Search page:   
-![Google_Books_Search](./docs/Snippet_1.png)  
+![Google_Books_Search](./docs/snippet1.png)  
 
 The Saved page on a smaller device:  
-![Google_Books_Saved](./docs/Snippet_2.png)   
+![Google_Books_Saved](./docs/snippet2.png)   
      
  __Note: This saved list used the seed file__  
 
