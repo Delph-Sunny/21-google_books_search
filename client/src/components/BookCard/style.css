@@ -12,34 +12,43 @@ button {
   margin-right: 2rem !important;
 }
 
-.rating-ctn{
+.rating-ctn {
   margin: 1rem !important;
-  
 }
 
 @media only screen and (max-width: 768px) {
-  .button-ctn, .rating-ctn {
+  .button-ctn,
+  .rating-ctn {
     margin-bottom: 1rem;
   }
+
   .button-ctn button {
     font-size: 1rem;
   }
+
   .description {
     font-size: 1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0rem;
+  }
+
+  .card {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .button-ctn {
-    margin-bottom: 1rem;
+@media only screen and (max-width: 426px) {
+  .card h4 {
+    font-size: 1.25rem;
   }
-  .button-ctn button {
-    font-size: 1rem;
+  .authors {
+    font-size: 0.9rem;
   }
   .description {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .img-thumbnail {
-    max-height: 200px;
+    max-height: 150px;
   }
 }

@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-//const path = require("path"); // Necessary if routes?
 const PORT = process.env.PORT || 3001;  // Setting up port
 const app = express();  // Creating express app
 
@@ -23,11 +22,6 @@ mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/googlebooks", {
 }).then(() => console.log("   ***** MongoDB Connected *****"))
   .catch(err => console.log(err));
 
-  /* Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
-*/
 
 // Start the API server
 app.listen(PORT, () => {

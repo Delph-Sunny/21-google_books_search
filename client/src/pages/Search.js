@@ -30,12 +30,7 @@ function Search() {
 
   function saveBook(id) {
     const book = books.find((book) => book.id === id);
-    // Case handling when no authors listed
-    let authors = "No authors listed";
-    if (book.volumeInfo.authors) {
-      authors = book.volumeInfo.authors[0];
-    }
-
+    
     API.saveBook({
       title: book.volumeInfo.title,
       subtitle: book.volumeInfo.subtitle,
@@ -51,13 +46,13 @@ function Search() {
   }
 
   return (
-    <Container fluid>
+    <Container fluid >
       <MyJumbotron />
       <SearchBar
         handleFormSubmit={handleFormSubmit}
         handleInputChange={handleInputChange}
       />
-      <Container fluid>
+      <Container fluid id="book-box">
         <Row>
           <h6>Results</h6>
         </Row>

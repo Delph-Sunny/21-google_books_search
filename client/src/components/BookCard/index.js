@@ -1,7 +1,6 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 import Ratings from "../Ratings";
 import Buttons from "../Buttons";
 import "./style.css";
@@ -19,7 +18,6 @@ function BookCard(props) {
         </Col>
         <Col xs={12} sm={4} md={4}>
           <Row className="d-flex justify-content-end button-ctn">
-            
             <Buttons bgColor="#629db6">
               <a href={props.link} target="_blank" rel="noopener noreferrer">
                 View
@@ -30,10 +28,11 @@ function BookCard(props) {
               {props.label}
             </Buttons>
           </Row>
-          <Row className="d-flex justify-content-end rating-ctn" style={{ display: props.display }}>
-          
+          <Row
+            className="justify-content-end rating-ctn"
+            style={{ display: props.display }}
+          >
             <Ratings rating={props.rating} />
-    
           </Row>
         </Col>
       </Row>
