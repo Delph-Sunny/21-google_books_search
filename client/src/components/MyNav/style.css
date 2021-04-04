@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #116383;
+}
+
+.navbar a {
+  color: #fa5523e3 !important;
+  text-decoration: none !important;
+}
+
+@media only screen and (max-width: 426px) {
+  .navbar button {
+    font-size: 0.9rem;
+    margin-right: 0px !important;
+    min-width: 65px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .navbar a {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,39 @@
+.myhero {
+  padding: 10%;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  width: 100% !important;
+}
+
+.jumbotron h1 {
+  color: white !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px tomato;
+}
+
+.jumbotron p {
+  color: #ffcb74 !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px tomato;
+}
+
+@media only screen and (max-width: 768px) {
+  .jumbotron h1 {
+    font-size: 2.5rem;
+  }
+
+  .jumbotron p {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .jumbotron h1 {
+    font-size: 1.5rem;
+  }
+
+  .jumbotron p {
+    font-size: 0.9rem;
+    margin-bottom: 0px !important;
+  }
+}

@@ -1,0 +1,21 @@
+footer {
+  text-align: center;
+  background-color: #116383 !important;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 90% !important;
+}
+
+footer a {
+  color: #fa5523e3 !important;
+  text-decoration: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    font-size: 80% !important;
+  }
+}
