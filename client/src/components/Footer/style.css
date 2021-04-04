@@ -1,6 +1,6 @@
 footer {
   text-align: center;
-  background-color: #116383 !important; 
+  background-color: #116383 !important;
   color: white;
   position: fixed;
   bottom: 0;
@@ -9,7 +9,7 @@ footer {
   font-size: 90% !important;
 }
 
-a {
+footer a {
   color: #fa5523e3 !important;
   text-decoration: none !important;
 }

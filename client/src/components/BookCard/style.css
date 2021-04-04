@@ -1,0 +1,45 @@
+.card {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.card a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+button {
+  margin-right: 2rem !important;
+}
+
+.rating-ctn{
+  margin: 1rem !important;
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .button-ctn, .rating-ctn {
+    margin-bottom: 1rem;
+  }
+  .button-ctn button {
+    font-size: 1rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .button-ctn {
+    margin-bottom: 1rem;
+  }
+  .button-ctn button {
+    font-size: 1rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .img-thumbnail {
+    max-height: 200px;
+  }
+}

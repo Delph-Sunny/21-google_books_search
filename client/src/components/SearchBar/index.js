@@ -1,6 +1,6 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import "./style.css";
 
 function SearchBar(props) {
@@ -20,7 +20,7 @@ function SearchBar(props) {
           </div>
           <Button
             onClick={props.handleFormSubmit}
-            className="btn-lg"
+            className="btn-lg submit-btn"
             type="submit"
           >
             <FaSearch className="search-icon" />

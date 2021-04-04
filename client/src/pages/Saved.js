@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import MyJumbotron from "../components/Jumbotron";
-import { Container } from "../components/Grid";
 import API from "../utils/API";
-import BookCard from '../components/BookCard';
+import MyJumbotron from "../components/MyJumbotron";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import BookCard from "../components/BookCard";
 import "./style.css";
 
 function Saved() {
@@ -31,8 +32,11 @@ function Saved() {
   return (
     <Container fluid>
       <MyJumbotron />
-      <Container>
-        <ul>
+      <Container fluid>
+        <Row>
+          <h6>Saved Books</h6>
+        </Row>
+        <Row>
           {books.map((book) => (
             <BookCard
               key={book._id}
@@ -40,15 +44,14 @@ function Saved() {
               authors={book.authors}
               description={book.description}
               image={book.image}
-              link={book.link}              
+              link={book.link}
               onClick={() => deleteBook(book._id)}
               label="Delete"
               bgColor="#AC3117"
               display="none"
-
             ></BookCard>
           ))}
-        </ul>
+        </Row>
       </Container>
     </Container>
   );

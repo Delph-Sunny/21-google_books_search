@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import MyJumbotron from "../components/Jumbotron";
 import API from "../utils/API";
+import MyJumbotron from "../components/MyJumbotron";
 import SearchBar from "../components/SearchBar";
-import { Container } from "../components/Grid";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import BookCard from "../components/BookCard";
 import "./style.css";
 
@@ -23,8 +24,6 @@ function Search() {
     API.getBooks(query)
       .then((res) => {
         setBooks(res.data.items);
-        console.log(query); // FOR TESTING
-        console.log(res.data.items[0].volumeInfo.averageRating); // FOR TESTING
       })
       .catch((err) => console.log(err));
   }
@@ -32,13 +31,10 @@ function Search() {
   function saveBook(id) {
     const book = books.find((book) => book.id === id);
     // Case handling when no authors listed
-    let authors = "";
+    let authors = "No authors listed";
     if (book.volumeInfo.authors) {
       authors = book.volumeInfo.authors[0];
-    } else {
-      authors = "No authors listed";
     }
-    
 
     API.saveBook({
       title: book.volumeInfo.title,
@@ -47,11 +43,9 @@ function Search() {
       description: book.volumeInfo.description,
       image: book.volumeInfo.imageLinks.thumbnail,
       link: book.volumeInfo.infoLink,
-      //rating: book.volumeInfo.averageRating
     })
       .then((res) => {
         alert("Your book has been saved"); // TO DO: better render if time
-        console.log(res); // FOR TESTING
       })
       .catch((err) => console.log(err.response));
   }
@@ -63,8 +57,11 @@ function Search() {
         handleFormSubmit={handleFormSubmit}
         handleInputChange={handleInputChange}
       />
-      <Container>
-        <ul>
+      <Container fluid>
+        <Row>
+          <h6>Results</h6>
+        </Row>
+        <Row>
           {books.map((book) => (
             <BookCard
               key={book.id}
@@ -72,15 +69,19 @@ function Search() {
               subtitle={book.volumeInfo.subtitle}
               authors={book.volumeInfo.authors}
               description={book.volumeInfo.description}
-              image={book.volumeInfo.imageLinks ? (book.volumeInfo.imageLinks.thumbnail) : ("")}
+              image={
+                book.volumeInfo.imageLinks
+                  ? book.volumeInfo.imageLinks.thumbnail
+                  : ""
+              }
               link={book.volumeInfo.infoLink}
-              rating={book.volumeInfo.averageRating}              
+              rating={book.volumeInfo.averageRating}
               onClick={() => saveBook(book.id)}
               label="Save"
-              bgColor="#0EDB99"
+              bgColor="#f4a451"
             />
           ))}
-        </ul>
+        </Row>
       </Container>
     </Container>
   );

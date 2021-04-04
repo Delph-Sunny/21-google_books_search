@@ -1,0 +1,18 @@
+.myhero {
+  padding: 10%;
+  background-repeat: no-repeat !important;
+  background-size: cover;
+  width: 100% !important;
+}
+
+.jumbotron h1 {
+  color: white !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px tomato;
+}
+
+.jumbotron p {
+  color: #ffcb74 !important;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px tomato;
+}
