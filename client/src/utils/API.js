@@ -7,7 +7,7 @@ const exportedObject =  {
   },
   // Gets all saved books
   getSavedBooks: function () {
-    return axios.get('./api/books');
+    return axios.get("./api/books");
   },
   // Gets the book with the given id
   getBook: function(id) {
@@ -20,6 +20,10 @@ const exportedObject =  {
   // Saves a book to the database
   saveBook: function(bookData) {
     return axios.post("/api/books", bookData);
-  }
+  },
+  /*message: function(cb) {
+    socket.on("timer", timestamp => cb(null, timestamp));
+    socket.emit("notifyUser", 100);
+}*/
 };
 export default exportedObject;

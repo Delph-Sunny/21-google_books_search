@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from "../utils/API";
 import MyJumbotron from "../components/MyJumbotron";
 import SearchBar from "../components/SearchBar";
@@ -6,11 +6,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import BookCard from "../components/BookCard";
 import "./style.css";
+import io from "socket.io-client";
 
 function Search() {
   // Setting our component's initial state
   const [books, setBooks] = useState([]);
   const [query, setQuery] = useState("");
+  const [message, setMessage] = useState(""); // for socket
 
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -40,9 +42,15 @@ function Search() {
       link: book.volumeInfo.infoLink,
     })
       .then((res) => {
-        alert("Your book has been saved"); // TO DO: better render if time
+        setMessage("Your book has been saved"); // TO DO: need to replace this with socket
+        send(message);
       })
       .catch((err) => console.log(err.response));
+  }
+
+  function send(msg) {
+    const socket = io("http://localhost:3001"); // To update with deployed heroku url
+    socket.emit("message :", msg)
   }
 
   return (
