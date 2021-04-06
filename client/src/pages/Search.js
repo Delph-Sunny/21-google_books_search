@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from "../utils/API";
 import MyJumbotron from "../components/MyJumbotron";
 import SearchBar from "../components/SearchBar";
@@ -40,7 +40,7 @@ function Search() {
       link: book.volumeInfo.infoLink,
     })
       .then((res) => {
-        alert("Your book has been saved"); // TO DO: better render if time
+        alert("Your book has been saved"); // TO DO: to replace with Toast and socket
       })
       .catch((err) => console.log(err.response));
   }

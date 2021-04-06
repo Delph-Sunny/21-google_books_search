@@ -27,8 +27,7 @@ function Saved() {
       .then(() => loadSavedBooks())
       .catch((err) => console.error(err));
   }
-  console.log(books); // FOR TESTING
-
+  
   return (
     <Container fluid>
       <MyJumbotron />
