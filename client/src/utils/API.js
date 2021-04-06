@@ -1,8 +1,10 @@
 import axios from "axios";
+import io from "socket.io-client";
+const socket = io("http://localhost:3000"); // To update with deployed heroku url
 
-const exportedObject =  {
+const exportedObject = {
   // Gets all books from google api
-  getBooks: function(query) {
+  getBooks: function (query) {
     return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query);
   },
   // Gets all saved books
@@ -10,20 +12,22 @@ const exportedObject =  {
     return axios.get("./api/books");
   },
   // Gets the book with the given id
-  getBook: function(id) {
+  getBook: function (id) {
     return axios.get("/api/books/" + id);
   },
   // Deletes the book with the given id
-  deleteBook: function(id) {
+  deleteBook: function (id) {
     return axios.delete("/api/books/" + id);
   },
   // Saves a book to the database
-  saveBook: function(bookData) {
+  saveBook: function (bookData) {
     return axios.post("/api/books", bookData);
   },
-  /*message: function(cb) {
-    socket.on("timer", timestamp => cb(null, timestamp));
-    socket.emit("notifyUser", 100);
-}*/
+  subscribeToUpdates: function (update, cb) {
+    socket.on("update", newUpdate => cb(newUpdate));
+    if (update) {
+      socket.emit("favoriteUpdate", update);
+    }
+  },
 };
 export default exportedObject;

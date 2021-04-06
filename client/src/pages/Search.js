@@ -6,13 +6,14 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import BookCard from "../components/BookCard";
 import "./style.css";
-import io from "socket.io-client";
+
+
 
 function Search() {
   // Setting our component's initial state
   const [books, setBooks] = useState([]);
   const [query, setQuery] = useState("");
-  const [message, setMessage] = useState(""); // for socket
+  const [message, setMessages] = useState("");
 
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -26,12 +27,15 @@ function Search() {
     API.getBooks(query)
       .then((res) => {
         setBooks(res.data.items);
+        console.log(res.data.items)
       })
       .catch((err) => console.log(err));
   }
 
   function saveBook(id) {
     const book = books.find((book) => book.id === id);
+    
+    
     
     API.saveBook({
       title: book.volumeInfo.title,
@@ -42,16 +46,13 @@ function Search() {
       link: book.volumeInfo.infoLink,
     })
       .then((res) => {
-        setMessage("Your book has been saved"); // TO DO: need to replace this with socket
-        send(message);
+        API.subscribeToUpdates(book, (response) => console.log('received saved update: ',response))
+        //alert("Your book has been saved"); // TO DO: better render if time
+        console.log("book saved")
       })
       .catch((err) => console.log(err.response));
   }
 
-  function send(msg) {
-    const socket = io("http://localhost:3001"); // To update with deployed heroku url
-    socket.emit("message :", msg)
-  }
 
   return (
     <Container fluid >
@@ -75,13 +76,13 @@ function Search() {
               image={
                 book.volumeInfo.imageLinks
                   ? book.volumeInfo.imageLinks.thumbnail
-                  : ""
+                  : "https://via.placeholder.com/150"
               }
               link={book.volumeInfo.infoLink}
               rating={book.volumeInfo.averageRating}
               onClick={() => saveBook(book.id)}
               label="Save"
-              bgColor="#f4a451"
+              bgColor="#f4a451"              
             />
           ))}
         </Row>
