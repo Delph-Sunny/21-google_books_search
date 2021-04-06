@@ -7,14 +7,10 @@ import Row from "react-bootstrap/Row";
 import BookCard from "../components/BookCard";
 import "./style.css";
 
-
-
 function Search() {
   // Setting our component's initial state
   const [books, setBooks] = useState([]);
   const [query, setQuery] = useState("");
-  const [message, setMessages] = useState("");
-
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     setQuery(event.target.value);
@@ -27,17 +23,23 @@ function Search() {
     API.getBooks(query)
       .then((res) => {
         setBooks(res.data.items);
-        console.log(res.data.items)
       })
       .catch((err) => console.log(err));
   }
 
   function saveBook(id) {
     const book = books.find((book) => book.id === id);
-    
-    
-    
-    API.saveBook({
+    // if no author
+    if (book.volumeInfo.authors === undefined) {
+      book.volumeInfo.authors = ["NA"];
+    }
+    //if no image assigned
+    if (typeof(book.volumeInfo.imageLinks) === "undefined") {
+      let val = `${process.env.PUBLIC_URL + "/icons/image-not-found.png"}`;
+      book.volumeInfo.imageLinks = { thumbnail: val };
+      }
+
+      API.saveBook({
       title: book.volumeInfo.title,
       subtitle: book.volumeInfo.subtitle,
       authors: book.volumeInfo.authors[0],
@@ -46,16 +48,13 @@ function Search() {
       link: book.volumeInfo.infoLink,
     })
       .then((res) => {
-        API.subscribeToUpdates(book, (response) => console.log('received saved update: ',response))
-        //alert("Your book has been saved"); // TO DO: better render if time
-        console.log("book saved")
+        alert("Your book has been saved"); // TO DO: better render if time
       })
       .catch((err) => console.log(err.response));
   }
 
-
   return (
-    <Container fluid >
+    <Container fluid>
       <MyJumbotron />
       <SearchBar
         handleFormSubmit={handleFormSubmit}
@@ -76,13 +75,13 @@ function Search() {
               image={
                 book.volumeInfo.imageLinks
                   ? book.volumeInfo.imageLinks.thumbnail
-                  : "https://via.placeholder.com/150"
+                  : `${process.env.PUBLIC_URL + "/icons/image-not-found.png"}`
               }
               link={book.volumeInfo.infoLink}
               rating={book.volumeInfo.averageRating}
               onClick={() => saveBook(book.id)}
               label="Save"
-              bgColor="#f4a451"              
+              bgColor="#f4a451"
             />
           ))}
         </Row>

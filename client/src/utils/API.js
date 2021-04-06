@@ -1,6 +1,4 @@
 import axios from "axios";
-import io from "socket.io-client";
-const socket = io("http://localhost:3000"); // To update with deployed heroku url
 
 const exportedObject = {
   // Gets all books from google api
@@ -22,12 +20,6 @@ const exportedObject = {
   // Saves a book to the database
   saveBook: function (bookData) {
     return axios.post("/api/books", bookData);
-  },
-  subscribeToUpdates: function (update, cb) {
-    socket.on("update", newUpdate => cb(newUpdate));
-    if (update) {
-      socket.emit("favoriteUpdate", update);
-    }
-  },
+  }
 };
 export default exportedObject;
