@@ -29,7 +29,6 @@ function Saved() {
         loadSavedBooks()})
       .catch((err) => console.error(err));
   }
-  /*console.log(books); // FOR TESTING */
 
   return (
     <Container fluid>
