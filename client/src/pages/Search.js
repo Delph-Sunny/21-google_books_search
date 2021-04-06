@@ -31,7 +31,7 @@ function Search() {
     const book = books.find((book) => book.id === id);
     // if no author
     if (book.volumeInfo.authors === undefined) {
-      book.volumeInfo.authors = ["NA"];
+      book.volumeInfo.authors = ["Unknown author"];
     }
     //if no image assigned
     if (typeof(book.volumeInfo.imageLinks) === "undefined") {
@@ -48,7 +48,7 @@ function Search() {
       link: book.volumeInfo.infoLink,
     })
       .then((res) => {
-        alert("Your book has been saved"); // TO DO: better render if time
+       // alert("Your book has been saved"); // TO DO: To replace with toast component and socket
       })
       .catch((err) => console.log(err.response));
   }

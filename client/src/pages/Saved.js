@@ -24,8 +24,8 @@ function Saved() {
   // Deletes a book from the database with a given id, then reloads books from the db
   function deleteBook(id) {
     API.deleteBook(id)
-      .then(() => {
-        alert("Your book has been deleted"); // TO DO: better render if time
+      .then((res) => {
+       // alert("Your book has been deleted"); // TO DO: To replace with toast component and socket
         loadSavedBooks()})
       .catch((err) => console.error(err));
   }
