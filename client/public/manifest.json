@@ -22,6 +22,16 @@
       "src": "icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "icons/image-not-found.png",
+      "sizes": "180x193",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/hero3.jpg",
+      "sizes": "5836x3891",
+      "type": "image/jpg"
     }
   ],
   "start_url": "./index.html",

@@ -6,8 +6,10 @@ import Search from "./pages/Search";
 import MyNav from "./components/MyNav";
 import Footer from "./components/Footer";
 
+
+
 function App() {
-  return (
+   return (
     <Router>
       <div>
         <MyNav />

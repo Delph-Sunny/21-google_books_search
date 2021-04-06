@@ -11,7 +11,6 @@ function Search() {
   // Setting our component's initial state
   const [books, setBooks] = useState([]);
   const [query, setQuery] = useState("");
-
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     setQuery(event.target.value);
@@ -30,8 +29,17 @@ function Search() {
 
   function saveBook(id) {
     const book = books.find((book) => book.id === id);
-    
-    API.saveBook({
+    // if no author
+    if (book.volumeInfo.authors === undefined) {
+      book.volumeInfo.authors = ["Unknown author"];
+    }
+    //if no image assigned
+    if (typeof(book.volumeInfo.imageLinks) === "undefined") {
+      let val = `${process.env.PUBLIC_URL + "/icons/image-not-found.png"}`;
+      book.volumeInfo.imageLinks = { thumbnail: val };
+      }
+
+      API.saveBook({
       title: book.volumeInfo.title,
       subtitle: book.volumeInfo.subtitle,
       authors: book.volumeInfo.authors[0],
@@ -40,13 +48,13 @@ function Search() {
       link: book.volumeInfo.infoLink,
     })
       .then((res) => {
-        alert("Your book has been saved"); // TO DO: to replace with Toast and socket
+       // alert("Your book has been saved"); // TO DO: To replace with toast component and socket
       })
       .catch((err) => console.log(err.response));
   }
 
   return (
-    <Container fluid >
+    <Container fluid>
       <MyJumbotron />
       <SearchBar
         handleFormSubmit={handleFormSubmit}
@@ -67,7 +75,7 @@ function Search() {
               image={
                 book.volumeInfo.imageLinks
                   ? book.volumeInfo.imageLinks.thumbnail
-                  : ""
+                  : `${process.env.PUBLIC_URL + "/icons/image-not-found.png"}`
               }
               link={book.volumeInfo.infoLink}
               rating={book.volumeInfo.averageRating}
