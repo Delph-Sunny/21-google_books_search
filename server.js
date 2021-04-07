@@ -23,9 +23,10 @@ app.get("*", function (req, res) {
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/googlebooks", {
-  useNewUrlParser: true,
+  useCreateIndex: true,
   useFindAndModify: false,
-  useUnifiedTopology: true
+  useNewUrlParser: true,  
+  useUnifiedTopology: true  
 }).then(() => console.log("   ***** MongoDB Connected *****"))
   .catch(err => console.log(err));
 

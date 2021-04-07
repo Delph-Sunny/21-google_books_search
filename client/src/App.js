@@ -5,11 +5,11 @@ import Saved from "./pages/Saved";
 import Search from "./pages/Search";
 import MyNav from "./components/MyNav";
 import Footer from "./components/Footer";
-
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-   return (
+  return (
     <Router>
       <div>
         <MyNav />
@@ -18,6 +18,18 @@ function App() {
           <Route exact path="/search" component={Search} />
           <Route exact path="/saved" component={Saved} />
         </Switch>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          closeButton={false}
+        />
         <Footer />
       </div>
     </Router>

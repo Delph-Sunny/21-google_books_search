@@ -4,6 +4,7 @@ import MyJumbotron from "../components/MyJumbotron";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import BookCard from "../components/BookCard";
+import {toast} from "react-toastify";
 import "./style.css";
 
 function Saved() {
@@ -22,11 +23,20 @@ function Saved() {
   }
 
   // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
+  function deleteBook(book) {
+    API.deleteBook(book._id)
       .then((res) => {
-       // alert("Your book has been deleted"); // TO DO: To replace with toast component and socket
-        loadSavedBooks()})
+        toast.info(`"${book.title}" has been removed!`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }); // TO DO: To connect with socket
+        loadSavedBooks();
+      })
       .catch((err) => console.error(err));
   }
 
@@ -46,7 +56,7 @@ function Saved() {
               description={book.description}
               image={book.image}
               link={book.link}
-              onClick={() => deleteBook(book._id)}
+              onClick={() => deleteBook(book)}
               label="Delete"
               bgColor="#AC3117"
               display="none"

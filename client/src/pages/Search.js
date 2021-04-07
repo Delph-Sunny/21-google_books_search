@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import BookCard from "../components/BookCard";
+import {toast} from "react-toastify";
 import "./style.css";
 
 function Search() {
@@ -48,7 +49,15 @@ function Search() {
       link: book.volumeInfo.infoLink,
     })
       .then((res) => {
-       // alert("Your book has been saved"); // TO DO: To replace with toast component and socket
+       toast.info(`"${book.volumeInfo.title}" has been saved!`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        }); // TO DO: To connect with socket
       })
       .catch((err) => console.log(err.response));
   }
