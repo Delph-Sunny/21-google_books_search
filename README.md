@@ -82,20 +82,18 @@ The layout should include at least two React Components for each page `Search` a
 :information_source:   
 npm dependencies:  
 - axios  
-- bootstrap  
-- gh-pages
-- react  
-- react-dom
-- react-router
-- express
-- mongodb
-- mongoose
-- socket.io
-
-
+- express   
+- mongoose  
+- socket.io &&  socket.io-client  
+- bootstrap && react-bootstrap
+- react    
+- react dom  
+- react icons 
+- react router  
+- react toastify  
 
 ## Installation and Usage  
-You can use directly the [deployed app](HEROKU) or run it locally with the following steps: 
+You can use directly the [deployed app](https://homework-21-google-book-search.herokuapp.com/) or run it locally with the following steps: 
 - Open a terminal instance  
 - Clone the following [repo](https://github.com/Delph-Sunny/21-google-books-search)  
 - In the working directory, install the dependencies package with the following code line `npm i`  
@@ -112,6 +110,9 @@ The Saved page on a smaller device:
      
  __Note: This saved list used the seed file__  
 
+## Future Development  
+ - To finish socket implementation.  
+ - Add login page and user model to be more usable.  
 
 ## License  
 
