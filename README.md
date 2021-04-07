@@ -19,7 +19,8 @@
 * [Description](#Description)
 * [User Story and Details](#User-Story-and-Details)  
 * [Installation and Usage](#Installation-and-Usage)  
-* [Images of the app](#Images-of-the-app-)  
+* [Images of the app](#Images-of-the-app-)
+* [Future Development](#Future-Development)  
 * [License](#License)  
 * [Contact](#Contact) 
 
@@ -111,8 +112,10 @@ The Saved page on a smaller device:
  __Note: This saved list used the seed file__  
 
 ## Future Development  
- - To finish socket implementation.  
- - Add login page and user model to be more usable.  
+ - Finish socket implementation for live notifications.  
+ - Add notification if a book was already saved. 
+ - Add alpahbetic sorting on the Saved page.  
+ - Add sorting by ratings on the Search page.  
 
 ## License  
 
