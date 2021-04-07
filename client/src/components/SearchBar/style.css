@@ -49,6 +49,8 @@ input {
 
   .form-control {
     font-size: 0.75rem !important;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
   }
 
   .form-control::placeholder {
