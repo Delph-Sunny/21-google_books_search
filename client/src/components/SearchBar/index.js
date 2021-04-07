@@ -15,7 +15,7 @@ function SearchBar(props) {
               onChange={props.handleInputChange}
               value={props.value}
               type="search"
-              placeholder="Search for a book title"
+              placeholder="Search books..."
               aria-label="Search"
             />
             <Button
